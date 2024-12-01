@@ -12,8 +12,8 @@ interface Plugin extends Document {
         downloads: number,
         imageURL: string,
         download: {
-            url: string,
-            version: string,
+            url?: string,
+            version?: string,
         },
         lastUpdated: string,
     }>
@@ -42,7 +42,7 @@ const PluginSchema = new Schema<Plugin>({
     versionKey: false
 })
 
-const ZodPlugin = z.object({
+export const ZodPlugin = z.object({
     name: z.string(),
     platforms: z.record(z.string(), z.object({
         id: z.string(),
