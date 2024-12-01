@@ -1,0 +1,5 @@
+[phases.setup]
+nixpkgsArchive = 'b0d941edb4ceb521b310a08645de08b4c95142f0'
+
+[start]
+cmd = "bun run start"
