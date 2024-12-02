@@ -6,10 +6,12 @@ import { logger } from "hono/logger";
 import BunCache from "@samocodes/bun-cache";
 import { HonoEnv } from "@/pkg/hono/env";
 import { apiReference } from "@scalar/hono-api-reference";
+import { clerkMiddleware } from "@hono/clerk-auth";
 
 export function newApp() {
   const app = new OpenAPIHono<HonoEnv>();
 
+  app.use(clerkMiddleware())
   app.use(logger());
   app.use(prettyJSON());
   app.use(cors());
